@@ -1,18 +1,67 @@
 'use strict'
 
 const db = require('../server/db')
-const {User} = require('../server/db/models')
+const {Users, Products, Orders, OrderProducts} = require('../server/db/models')
+
+const users = [
+  {
+    email: 'cody@email.com',
+    name: 'Cody Ydoc',
+    address: '1234 Street New York, NY 10024',
+    phone: '+1 123-456-7890',
+    admin: 'false',
+    password: '123'
+  }
+]
+
+const orders = [{completed: false}]
+
+const products = [
+  {
+    name: 'Solovair boots',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/4/4b/Racing_Green_8_eye_Derby_Boot.jpg',
+    description: 'color: green. size: 8.5 women',
+    category: 'shoes',
+    price: '50.99',
+    stock: '2'
+  }
+]
+
+const orderProducts = [{quantity: '1', price: '50.99', productId: 1}]
 
 async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
 
-  const users = await Promise.all([
-    User.create({email: 'cody@email.com', password: '123'}),
-    User.create({email: 'murphy@email.com', password: '123'})
-  ])
+  await Promise.all(
+    users.map(user => {
+      return Users.create(user)
+    })
+  )
 
-  console.log(`seeded ${users.length} users`)
+  await Promise.all(
+    orders.map(order => {
+      return Orders.create(order)
+    })
+  )
+
+  await Promise.all(
+    products.map(product => {
+      return Products.create(product)
+    })
+  )
+
+  await Promise.all(
+    orderProducts.map(oProduct => {
+      return OrderProducts.create(oProduct)
+    })
+  )
+
+  console.log(`seeded ${users.length} users. Woof~`)
+  console.log(`seeded ${orders.length} orders. Woof~`)
+  console.log(`seeded ${products.length} products. Woof~`)
+  console.log(`seeded ${orderProducts.length} order products. Woof~`)
   console.log(`seeded successfully`)
 }
 
