@@ -10,7 +10,7 @@ const OrderProducts = db.define('orderProducts', {
       min: 1
     }
   },
-  stock: {
+  quantity: {
     type: Sequelize.INTEGER,
     validate: {
       notEmpty: true,
