@@ -1,5 +1,6 @@
 const Users = require('./users')
 const Products = require('./products')
+const Orders = require('./orders')
 
 /* I don't want to define associations just yet
 
@@ -8,5 +9,6 @@ Products.belongsTo(Users); */
 
 module.exports = {
   Users,
-  Products
+  Products,
+  Orders
 }
