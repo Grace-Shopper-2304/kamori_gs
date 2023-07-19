@@ -12,14 +12,7 @@ const Users = db.define('users', {
       notEmpty: true
     }
   },
-  firstName: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
-  },
-  lastName: {
+  name: {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
