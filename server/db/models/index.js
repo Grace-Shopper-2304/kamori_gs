@@ -1,14 +1,20 @@
 const Users = require('./users')
 const Products = require('./products')
 const Orders = require('./orders')
+const OrderProducts = require('./orderProducts')
 
-/* I don't want to define associations just yet
+Users.hasMany(Orders)
+Orders.belongsTo(Users)
 
- Users.hasMany(Products);
-Products.belongsTo(Users); */
+Orders.hasMany(OrderProducts)
+OrderProducts.belongsTo(Orders)
+
+Products.hasMany(OrderProducts)
+OrderProducts.belongsTo(Products)
 
 module.exports = {
   Users,
   Products,
-  Orders
+  Orders,
+  OrderProducts
 }
