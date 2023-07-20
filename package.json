@@ -57,6 +57,7 @@
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.1",
     "react-router-dom": "^5.0.0",
+    "react-scripts": "^5.0.1",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
@@ -100,8 +101,8 @@
     "redux-mock-store": "^1.5.3",
     "simple-git": "^1.121.0",
     "supertest": "^4.0.2",
-    "webpack": "^4.16.4",
-    "webpack-cli": "^3.1.0",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
     "yaml": "^1.6.0"
   }
 }
